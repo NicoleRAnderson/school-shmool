@@ -11,14 +11,14 @@ html {
 @media (max-width: 1000px) {
   html {
     font-size: 80%;
-    color: #d0e9f2;
+    color: #BF6B04;
   }
 }
 
 @media (max-width: 800px) {
   html {
     font-size: 60%;
-    color: #fff;
+    color: #A66D60;
   }
 }
 
