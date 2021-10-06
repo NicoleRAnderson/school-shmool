@@ -24,8 +24,9 @@ html {
 
 #navbar {
   width: 100%;
-  background-color: #9cb0d9;
+  background-color: #8C8846;
   position: fixed;
+  height: 3.5rem;
 }
 
 .nav-list {
@@ -33,27 +34,35 @@ html {
   justify-content: flex-end;
   list-style-type: none;
   margin-right: 1rem;
+  height: 3.5rem;
 }
 
 .nav-list a {
   display: block;
-  color: #bed2fb;
-  padding: 1.5rem;
-  font-size: xx-large;
+  color: #DCEAF2;
+  font-size: 2rem;
+  height: 3.5rem;
+  padding: .75rem;
 }
 
 .nav-list a:hover {
-  background-color: #d0e9f2;
+  background-color: #736E32;
+  height: 3.5rem;
 }
 
 #welcome-section {
-  background-color: #7289da;
+  background-color: #CCD9D7;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 3rem;
+  color: #59554D;
+}
+
+#welcome-section p {
+  color: #8c887f;
 }
 
 #projects {
@@ -62,11 +71,13 @@ html {
   flex-direction: column;
   align-items: center;
   padding: 3rem 0;
+  background-color: #DCEAF2;
 }
 
 #projects h3 {
   font-size: 3rem;
-  color: #f0a13c;
+  color: #D9A404;
+  text-shadow: 1.75px 1.75px 4px #BF8B2A;
   padding-bottom: 1.75rem;
 }
 
@@ -74,10 +85,16 @@ html {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+
 }
 
 .project-tile {
   margin: 0.5rem;
+}
+
+figcaption {
+  text-align: center;
+  color: #59554D;
 }
 
 #contact {
@@ -86,14 +103,19 @@ html {
   justify-content: center;
   align-items: center;
   height: 370px;
-  background-color: #f0a13c;
+  background-color: #CCD9D7;
   font-size: 2rem;
 }
 
 #contact h1,
 h4 {
   padding-bottom: 1rem;
-  color: #7a90b7;
+  color: #59554D;
+}
+
+#contact h4 {
+  font-size: 1.5rem;
+  color: #8c887f;
 }
 
 #contact div {
@@ -104,8 +126,8 @@ h4 {
 #contact div a {
   padding: 2rem;
   font-size: 1.5rem;
-  color: #7091d4;
-  text-shadow: 2px 2px 2px #1f1f1f;
+  color: #D9A404;
+  text-shadow: 1.25px 1.25px 4px #BF8B2A;
   transition: transform 0.3s linear;
 }
 
@@ -121,4 +143,9 @@ footer {
   text-align: center;
   padding: 1rem;
   font-size: large;
+  background-color: #8C8846;
+}
+
+footer h4 {
+  color: #DCEAF2;
 }
