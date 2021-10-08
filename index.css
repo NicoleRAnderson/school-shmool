@@ -59,10 +59,14 @@ html {
   align-items: center;
   font-size: 3rem;
   color: #59554D;
+  font-family: 'Poppins', sans-serif;
 }
 
 #welcome-section p {
-  color: #D9A404;
+  color: #A66D60;
+  text-shadow: 1.75px 1.75px 4px #944b40;
+  font-size: 2rem;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 #projects {
@@ -70,15 +74,17 @@ html {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  max-width: 1280px;
   padding: 3rem 0;
   background-color: #DCEAF2;
 }
 
 #projects h3 {
   font-size: 3rem;
-  color: #D9A404;
-  text-shadow: 1.75px 1.75px 4px #BF8B2A;
+  color: #A66D60;
+  text-shadow: 1.75px 1.75px 4px #944b40;
   padding-bottom: 1.75rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .projects-grid {
@@ -105,6 +111,7 @@ figcaption {
   height: 370px;
   background-color: #CCD9D7;
   font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 #contact h1,
@@ -126,8 +133,8 @@ h4 {
 #contact div a {
   padding: 2rem;
   font-size: 1.5rem;
-  color: #D9A404;
-  text-shadow: 1.25px 1.25px 4px #BF8B2A;
+  color: #A66D60;
+  text-shadow: 1.25px 1.25px 4px #944b40;
   transition: transform 0.3s linear;
 }
 
@@ -148,4 +155,6 @@ footer {
 
 footer h4 {
   color: #DCEAF2;
+  position: relative;
+  top: 10px;
 }
