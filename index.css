@@ -79,6 +79,11 @@ html {
   background-color: #DCEAF2;
 }
 
+#projects {
+  background-color: #DCEAF2;
+  width: auto;
+}
+
 #projects h3 {
   font-size: 3rem;
   color: #A66D60;
