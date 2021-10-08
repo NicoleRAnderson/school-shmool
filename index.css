@@ -74,14 +74,9 @@ html {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  max-width: 1400px;
+  max-width: 1000px;
   padding: 3rem 0;
   background-color: #DCEAF2;
-}
-
-#projects {
-  background-color: #DCEAF2;
-  width: auto;
 }
 
 #projects h3 {
