@@ -85,3 +85,6 @@ element => {
     return console.log(element) // explicit 'return' because of multiple lines
 }
 (num1, num2) => num1 + num2 
+
+// a higher order function is a function that accepts another function as a parameter.
+// filter, map and reduce are the most popular, but forEach, find and some are also ??
