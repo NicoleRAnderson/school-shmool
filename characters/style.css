@@ -1,6 +1,32 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    background-color: gray;
+    padding: 2em 0;
+}
+
+button {
+    font-size: x-large;
+    background-color: hotpink;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: rgb(164, 20, 159);
+}
+
 main {
     display: flex;
     flex-wrap: wrap;
+}
+
+figure {
+    margin: 8px;
 }
 
 figure img {
