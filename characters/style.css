@@ -12,7 +12,7 @@ header {
 
 button {
     font-size: x-large;
-    background-color: hotpink;
+    background-color: #eb96e4;
     border-radius: 10px;
 }
 
@@ -31,4 +31,8 @@ figure {
 
 figure img {
     width: 200px;
+}
+
+figcaption {
+    background-color: #eb96e4;
 }
