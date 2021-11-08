@@ -1,23 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 h1 {
-    background-color: blue;
+  background-color: black;
+  color: #e0c43e;
+  text-align: center;
+  font-size: 4.5em;
+  font-family: "Bebas Neue", cursive;
+  padding-top: 0.5em;
+  text-shadow: 1.25px 1.25px 2px #fff;
 }
 
 figure {
-    background-color: black;
+  background-color: black;
+  margin: 2em;
 }
 
 img {
-    border: 8px solid gold;
+  border: thick double #e0c43e;
 }
 
 figcaption {
-    color: #fff;
-    text-align: center;
-    font-size: xx-large;
+  color: #e0c43e;
+  text-align: center;
+  font-size: xx-large;
+  font-family: "Bebas Neue", cursive;
+  padding-top: 0.5em;
+  text-shadow: 1px 1px .5px #fff;
 }
 
 main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: black;
 }
