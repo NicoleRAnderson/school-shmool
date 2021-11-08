@@ -1,20 +1,29 @@
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-header, footer {
-    font-family: 'Rock Salt', cursive;
-    font-size: xx-large;
-    text-align: center;
+header {
+  font-family: "Bebas Neue", cursive;
+  font-size: 4.5em;
+  text-align: center;
+  background-color: black;
+  color: #fff;
+}
+
+main {
+  background-image: url("/images/sw-gradientstars.png");
 }
 
 .mainContainer {
   display: flex;
+  color: #fff;
 }
 
 .nav {
   margin-left: 2em;
+  color: #fff;
 }
 
 section {
@@ -23,10 +32,11 @@ section {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  color: #fff;
 }
 
 .box {
-  background-color: darkblue;
+  background-color: #2a5d8f;
   font-size: xx-large;
   text-align: center;
   color: darkgrey;
@@ -34,4 +44,12 @@ section {
 
 .shipName {
   font-size: x-large;
+}
+
+footer p {
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.5em;
+  text-align: center;
+  color: #fff;
+  background-color: #2a5d8f;
 }
