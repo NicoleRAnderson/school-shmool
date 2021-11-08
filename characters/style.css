@@ -6,25 +6,26 @@
 header {
     display: flex;
     justify-content: space-around;
-    background-color: gray;
+    background-color: black;
     padding: 2em 0;
 }
 
 button {
-    font-size: x-large;
+    font-size: 2.5em;
     color: #dceaf2;
-    background-color: #2c78aa;
+    background-color: #2a5d8f;
     border-radius: 10px;
+    font-family: "Bebas Neue", cursive;
 }
 
 button:hover {
-    background-color: #79d4e1;
+    background-color: #6a86a1;
 }
 
 main {
     display: flex;
     flex-wrap: wrap;
-    background-color: gray;
+    background-color: black;
     justify-content: center;
 }
 
@@ -38,4 +39,7 @@ figure img {
 
 figcaption {
     color: #dceaf2;
+    font-family: "Bebas Neue", cursive;
+    font-size: 1.5em;
+    text-align: center;
 }
