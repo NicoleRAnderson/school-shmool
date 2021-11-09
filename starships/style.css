@@ -43,13 +43,16 @@ section {
 
 .box {
   background-color: #2a5d8f;
-  font-size: xx-large;
+  font-size: 2em;
   text-align: center;
   color: darkgrey;
+  font-family: "Poppins", sans-serif;
 }
 
 .shipName {
-  font-size: x-large;
+  font-size: 2.5em;
+  font-family: "Bebas Neue", cursive;
+  padding-top: .5em;
 }
 
 footer p {
