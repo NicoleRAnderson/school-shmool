@@ -26,6 +26,12 @@ main {
   color: #fff;
 }
 
+a {
+  font-size: 1em;
+  color: #fff;
+  font-family: "Bebas Neue", cursive;
+}
+
 section {
   width: 100%;
   display: flex;
