@@ -2,8 +2,8 @@ import { senators } from "../data/senators.js";
 
 const senatorDiv = document.querySelector(".senators");
 
-function simplifiedSenators(senatorArray) {
-    return senatorArray.map(senator => {
+function simplifiedSenators() {
+    return senators.map(senator => {
         const middleName = senator.middle_name ? ` ${senator.middle_name} `: ` `
         return {
             id: senator.id,
@@ -35,9 +35,7 @@ function populateSenatorDiv(simpleSenators) {
     })
 }
 
-const filterSenators = (prop, value) => {
-return simplifiedSenators(senators).filter(senator => senator[prop] === value)
-}
+const filterSenators = (prop, value) => simplifiedSenators(senators).filter(senator => senator[prop] === value)
 
 const republicans = filterSenators("party", "R")
 const femaleSenators = filterSenators("gender", "F")
