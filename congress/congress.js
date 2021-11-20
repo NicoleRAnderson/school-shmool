@@ -8,9 +8,11 @@ const seniorityHeading = document.querySelector(".seniority");
 const weaselOrderedList = document.querySelector(".weaselList");
 
 function simplifiedMembers(chamberFilter) {
-  const filteredArray = members.filter(member => chamberFilter ? member.short_title === chamberFilter : member);
+  const filteredArray = members.filter((member) =>
+    chamberFilter ? member.short_title === chamberFilter : member
+  );
 
-  return filteredArray.map(item => {
+  return filteredArray.map((item) => {
     const middleName = item.middle_name ? ` ${item.middle_name} ` : ` `;
     return {
       id: item.id,
@@ -43,7 +45,7 @@ function populateSenatorDiv(simpleSenators) {
 }
 
 //const filterSenators = (prop, value) =>
-  //simplifiedMembers(item).filter((item) => item[prop] === value);
+//simplifiedMembers(item).filter((item) => item[prop] === value);
 
 //const republicans = filterSenators("party", "R");
 //const femaleSenators = filterSenators("gender", "F");
@@ -52,7 +54,7 @@ const mostSeniorMember = simplifiedMembers().reduce((acc, item) => {
   return acc.seniority > item.seniority ? acc : item;
 });
 
-seniorityHeading.textContent = `The most senior member of Congress is ${mostSeniorMember.name} who has taken our tax dollars as salary for more than ${mostSeniorMember.seniority} years!`
+seniorityHeading.textContent = `The most senior member of Congress is ${mostSeniorMember.name} who has taken our tax dollars as salary for more than ${mostSeniorMember.seniority} years!`;
 
 const mostLoyal = simplifiedMembers().reduce((acc, item) => {
   if (item.loyaltyPct === 100) {
@@ -61,8 +63,8 @@ const mostLoyal = simplifiedMembers().reduce((acc, item) => {
   return acc;
 }, []);
 
-const biggestWeasel = simplifiedMembers().reduce((acc, item) =>
-    (acc.missedVotesPct || 0) > item.missedVotesPct ? acc : item,
+const biggestWeasel = simplifiedMembers().reduce(
+  (acc, item) => ((acc.missedVotesPct || 0) > item.missedVotesPct ? acc : item),
   {}
 );
 
@@ -70,8 +72,8 @@ const biggestWeasels = simplifiedMembers().filter(
   (item) => item.missedVotesPct >= 50
 );
 
-biggestWeasels.forEach(weasel => {
-  let listItem = document.createElement("li")
-  listItem.textContent = weasel.name
-  weaselOrderedList.appendChild(listItem)
+biggestWeasels.forEach((weasel) => {
+  let listItem = document.createElement("li");
+  listItem.textContent = weasel.name;
+  weaselOrderedList.appendChild(listItem);
 });
