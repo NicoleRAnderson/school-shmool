@@ -1,5 +1,6 @@
 import { senators } from "../data/senators.js";
 import { representatives } from "../data/representatives.js";
+import { removeChildren } from "../utils/index.js";
 
 const members = [...senators, ...representatives]; // modern combining arrays like a genus ;)
 
@@ -20,7 +21,7 @@ function simplifiedMembers(chamberFilter) {
       party: item.party,
       imgURL: `https://www.govtrack.us/static/legislator-photos/${item.govtrack_id}-100px.jpeg`,
       gender: item.gender,
-      seniority: item.seniority,
+      seniority: +item.seniority,
       missedVotesPct: item.missed_votes_pct,
       loyaltyPct: item.votes_with_party_pct,
     };
@@ -30,10 +31,14 @@ function simplifiedMembers(chamberFilter) {
 populateSenatorDiv(simplifiedMembers());
 
 function populateSenatorDiv(simpleSenators) {
-  simpleSenators.forEach((senator) => {
+  removeChildren(senatorDiv);
+  simpleSenators.forEach((item) => {
     let itemFigure = document.createElement("figure");
     let figImg = document.createElement("img");
     let figCaption = document.createElement("figcaption");
+
+    if (item.party === "R") itemFigure.style.borderColor = "Red";
+    if (item.party === "D") itemFigure.style.borderColor = "Blue";
 
     figImg.src = item.imgURL;
 
@@ -49,6 +54,14 @@ function populateSenatorDiv(simpleSenators) {
 
 //const republicans = filterSenators("party", "R");
 //const femaleSenators = filterSenators("gender", "F");
+
+const genderSortButton = document.querySelector(".genderSort");
+genderSortButton.addEventListener("click", () => {
+  const femaleMembers = simplifiedMembers().filter(
+    (member) => member.gender === "F"
+  );
+  populateSenatorDiv(femaleMembers);
+});
 
 const mostSeniorMember = simplifiedMembers().reduce((acc, item) => {
   return acc.seniority > item.seniority ? acc : item;
