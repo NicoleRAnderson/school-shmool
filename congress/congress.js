@@ -55,8 +55,10 @@ function populateSenatorDiv(simpleSenators) {
 //const republicans = filterSenators("party", "R");
 //const femaleSenators = filterSenators("gender", "F");
 
-const genderSortButton = document.querySelector(".genderSort");
-genderSortButton.addEventListener("click", () => {
+
+
+const genderSortFemaleButton = document.querySelector(".genderSort");
+genderSortFemaleButton.addEventListener("click", () => {
   const femaleMembers = simplifiedMembers().filter(
     (member) => member.gender === "F"
   );
