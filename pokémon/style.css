@@ -1,6 +1,29 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    background-color:rgb(163, 210, 211);
+}
+
+h1 {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 4.5em;
+    text-align: center;
+    text-shadow: 2.25px 2.25px 2px rgb(42, 140, 140);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    
+}
+button {
+    font-size: 1.5em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color:rgb(42, 140, 140)
+}
+
+button:hover {
+    color:rgb(23, 227, 241)
 }
 
 .pokéGrid {
@@ -22,6 +45,7 @@
     transition: transform 1s;
     transform-style: preserve-3d;
     cursor: pointer;
+    
 }
 
 .cardFace {
@@ -36,7 +60,7 @@
 }
 
 .front {
-    background: mediumseagreen;
+    background:rgb(42, 140, 140);
 }
 
 .back {
