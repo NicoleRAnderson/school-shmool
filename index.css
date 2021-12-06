@@ -101,6 +101,14 @@ html {
   margin: 0.5rem;
 }
 
+.project-tile h1 {
+  font-size: 2rem;
+  color: #120d36;
+  text-shadow: 1.75px 1.75px 4px #2a5d8f;
+  padding-bottom: 1.75rem;
+  font-family: "Poppins", sans-serif;
+}
+
 .project-tile:hover {
   opacity: 0.67;
 }
