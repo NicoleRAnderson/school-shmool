@@ -89,6 +89,11 @@ html {
   font-family: "Poppins", sans-serif;
 }
 
+#projects h1 {
+  font-size: 2em;
+
+}
+
 .projects-grid {
   display: flex;
   justify-content: center;
@@ -103,10 +108,12 @@ html {
 
 .project-tile h1 {
   font-size: 2rem;
-  color: #120d36;
+  /*color: #120d36;
   text-shadow: 1.75px 1.75px 4px #2a5d8f;
   padding-bottom: 1.75rem;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;*/
+  color: black;
+  text-align: center;
 }
 
 .project-tile:hover {

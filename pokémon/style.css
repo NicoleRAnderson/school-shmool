@@ -1,7 +1,7 @@
 * {
     margin: 0;
     box-sizing: border-box;
-    background-color:rgb(163, 210, 211);
+    /*background-color:rgb(163, 210, 211);*/
 }
 
 h1 {
@@ -29,6 +29,7 @@ button:hover {
 .pokéGrid {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .scene {
@@ -60,14 +61,19 @@ button:hover {
 }
 
 .front {
-    background:rgb(42, 140, 140);
+   /* background:rgb(42, 140, 140);*/
 }
 
 .back {
-    background:mediumvioletred;
+    background-color:rgb(42, 140, 140);
     transform: rotateY(180deg);
 }
 
 figure img {
     width: 200px;
+}
+
+figcaption {
+    text-align: center;
+    font-size: 2.5em;
 }

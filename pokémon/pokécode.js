@@ -42,11 +42,13 @@ newButton.addEventListener("click", () => {
   let pokéAbilities = prompt(
     "What are your Pokémon abilities? (use a comma seperated list)"
   );
+  let newPokéTypes = prompt("What is the Pokémon's type?");
   let newPokémon = new Pokémon(
     pokéName,
     pokéHeight,
     pokéWeight,
-    getAbilitiesArray(pokéAbilities)
+    getAbilitiesArray(pokéAbilities),
+    newPokéTypes
   );
   populatePokéCard(newPokémon);
 });
@@ -63,12 +65,13 @@ function getAbilitiesArray(commaString) {
 }
 
 class Pokémon {
-  constructor(name, height, weight, abilities) {
+  constructor(name, height, weight, abilities, types) {
     (this.id = 100),
       (this.name = name),
       (this.height = height),
       (this.weight = weight),
-      (this.abilities = abilities);
+      (this.abilities = abilities),
+      (this.types = types);
   }
 }
 
@@ -98,6 +101,10 @@ function populateCardFront(pokémon) {
 
   const pokéCaption = document.createElement("figCaption");
   pokéCaption.textContent = pokémon.name;
+
+  pokéCaption.textContent = `${pokémon.name[0].toUpperCase()}${pokémon.name.slice(
+    1
+  )}`;
   pokéFront.appendChild(pokéImg);
   pokéFront.appendChild(pokéCaption);
 
@@ -108,12 +115,16 @@ function populateCardFront(pokémon) {
 function typesBackground(pokémon, card) {
   let pokéType1 = pokémon.types[0].type.name;
   let pokéType2 = pokémon.types[1]?.type.name;
-  card.style.setProperty(
-    "background",
-    `linear-gradient(${getPokéTypeColor(pokéType1)}, ${getPokéTypeColor(
-      pokéType2
-    )})`
-  );
+  if (!pokéType2) {
+    card.style.setProperty("background", getPokéTypeColor(pokéType1));
+  } else {
+    card.style.setProperty(
+      "background",
+      `linear-gradient(${getPokéTypeColor(pokéType1)}, ${getPokéTypeColor(
+        pokéType2
+      )})`
+    );
+  }
 }
 
 function getPokéTypeColor(pokéType) {
@@ -129,7 +140,7 @@ function getPokéTypeColor(pokéType) {
       color = "#0000ff";
       break;
     case "bug":
-      color = "#7fff00";
+      color = "#006400";
       break;
     case "normal":
       color = "#f5f5dc";
@@ -144,18 +155,19 @@ function getPokéTypeColor(pokéType) {
       color = "#c8ff00";
       break;
     case "psychic":
-      color = "#333333";
+      color = "#734f96";
       break;
     default:
       color = "#888888";
   }
+  return color;
 }
 
 function populateCardBack(pokémon) {
   const pokéBack = document.createElement("div");
   pokéBack.className = "cardFace back";
   const label = document.createElement("h4");
-  label.textContent = "Abilities:";
+  label.textContent = "Abilities & Types:";
   pokéBack.appendChild(label);
   const abilityList = document.createElement("ul");
   pokémon.abilities.forEach((abilityItem) => {
@@ -163,6 +175,16 @@ function populateCardBack(pokémon) {
     listItem.textContent = abilityItem.ability.name;
     abilityList.appendChild(listItem);
   });
+  //const secondLabel = document.createElement("h4");
+  //secondLabel.textContent = "Types:";
+  // pokéBack.appendChild(secondLabel);
+  const typesList = document.createElement("ol");
+  pokémon.types.forEach((pokéType) => {
+    let typeItem = document.createElement("li");
+    typeItem.textContent = pokéType.type.name;
+    typesList.appendChild(typeItem);
+  });
   pokéBack.appendChild(abilityList);
+  pokéBack.appendChild(typesList);
   return pokéBack;
 }
