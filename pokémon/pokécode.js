@@ -37,18 +37,20 @@ moreButton.addEventListener("click", () => {
 const newButton = document.querySelector(".newPokémon");
 newButton.addEventListener("click", () => {
   let pokéName = prompt("What is the name of your new Pokémon?");
-  let pokéHeight = prompt("What is the Pokémon's height?");
-  let pokéWeight = prompt("What is the Pokémon's weight?");
+  //let pokéHeight = prompt("What is the Pokémon's height?");
+  //let pokéWeight = prompt("What is the Pokémon's weight?");
   let pokéAbilities = prompt(
     "What are your Pokémon abilities? (use a comma seperated list)"
   );
-  let newPokéTypes = prompt("What is the Pokémon's type?");
+  let newPokéTypes = prompt(
+    "What are your Pokémon's types? (enter up to 2 types seperated by a space)"
+  );
   let newPokémon = new Pokémon(
     pokéName,
-    pokéHeight,
-    pokéWeight,
+    //pokéHeight,
+    //pokéWeight,
     getAbilitiesArray(pokéAbilities),
-    newPokéTypes
+    getTypesArray(newPokéTypes)
   );
   populatePokéCard(newPokémon);
 });
@@ -64,12 +66,23 @@ function getAbilitiesArray(commaString) {
   });
 }
 
+function getTypesArray(spacedString) {
+  let tempArray = spacedString.split(" ");
+  return tempArray.map((typeName) => {
+    return {
+      type: {
+        name: typeName,
+      },
+    };
+  });
+}
+
 class Pokémon {
   constructor(name, height, weight, abilities, types) {
-    (this.id = 100),
+    (this.id = 90),
       (this.name = name),
-      (this.height = height),
-      (this.weight = weight),
+      //(this.height = height),
+      //(this.weight = weight),
       (this.abilities = abilities),
       (this.types = types);
   }
