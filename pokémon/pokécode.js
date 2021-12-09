@@ -24,8 +24,31 @@ const pokéGrid = document.querySelector(".pokéGrid");
 const loadButton = document.querySelector(".loadPokémon");
 loadButton.addEventListener("click", () => {
   removeChildren(pokéGrid);
-  loadPokémon(300, 50);
+  loadPokémon(0, 50);
+  setTimeout(() => loadPokémon(100, 50), 3000);
 });
+
+const allPokémon = await getAllSimplePokémon();
+
+async function getAllSimplePokémon() {
+  const allPokémon = []
+  await getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=1118&offset=0`,).then(async (data) => {
+    for (const pokémon of data.results) {
+      await getAPIData(pokémon.url).then((pokéData) => {
+        const mappedPokémon = {
+          abilities: pokéData.abilities,
+          height: pokéData.height,
+          id: pokéData.id,
+          name: pokéData.name,
+          types: pokéData.types,
+          weight: pokéData.weight,
+        }
+        allPokémon.push(mappedPokémon)
+      })
+    }
+  })
+  return allPokémon
+}
 
 const moreButton = document.querySelector(".morePokémon");
 moreButton.addEventListener("click", () => {
@@ -37,8 +60,8 @@ moreButton.addEventListener("click", () => {
 const newButton = document.querySelector(".newPokémon");
 newButton.addEventListener("click", () => {
   let pokéName = prompt("What is the name of your new Pokémon?");
-  //let pokéHeight = prompt("What is the Pokémon's height?");
-  //let pokéWeight = prompt("What is the Pokémon's weight?");
+  let pokéHeight = prompt("What is the Pokémon's height?");
+  let pokéWeight = prompt("What is the Pokémon's weight?");
   let pokéAbilities = prompt(
     "What are your Pokémon abilities? (use a comma seperated list)"
   );
@@ -47,8 +70,8 @@ newButton.addEventListener("click", () => {
   );
   let newPokémon = new Pokémon(
     pokéName,
-    //pokéHeight,
-    //pokéWeight,
+    pokéHeight,
+    pokéWeight,
     getAbilitiesArray(pokéAbilities),
     getTypesArray(newPokéTypes)
   );
@@ -79,14 +102,32 @@ function getTypesArray(spacedString) {
 
 class Pokémon {
   constructor(name, height, weight, abilities, types) {
-    (this.id = 90),
+    (this.id = 9001),
       (this.name = name),
-      //(this.height = height),
-      //(this.weight = weight),
+      (this.height = height),
+      (this.weight = weight),
       (this.abilities = abilities),
       (this.types = types);
   }
 }
+
+function getAllPokémonByType(type) {
+  return allPokémon.filter((pokémon) => pokémon.types[0].type.name === type);
+}
+
+//const sortButton = document.querySelector(".sortButton")
+//sortButton.addEventListener("click", () => {
+//const allByType = getAllPokémonByType("water")
+//allByType.forEach((item) => populatePokéCard(item))
+//})
+
+const typeSelector = document.querySelector("#typeSelector");
+typeSelector.addEventListener("change", (event) => {
+  const usersTypeChoice = event.target.value.toLowerCase();
+  const allByType = getAllPokémonByType(usersTypeChoice);
+  removeChildren(pokéGrid);
+  allByType.forEach((item) => populatePokéCard(item));
+});
 
 function populatePokéCard(singlePokémon) {
   const pokéScene = document.createElement("div");
@@ -110,7 +151,11 @@ function populateCardFront(pokémon) {
   const pokéFront = document.createElement("figure");
   pokéFront.className = "cardFace front";
   const pokéImg = document.createElement("img");
-  pokéImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokémon.id}.png`;
+  if (pokémon.id === 9001) {
+    pokéImg.src = "../images/newpokeball.png";
+  } else {
+    pokéImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokémon.id}.png`;
+  }
 
   const pokéCaption = document.createElement("figCaption");
   pokéCaption.textContent = pokémon.name;
@@ -170,6 +215,18 @@ function getPokéTypeColor(pokéType) {
     case "psychic":
       color = "#734f96";
       break;
+    case "ground":
+      color = "#964B00";
+      break;
+    case "fairy":
+      color = "#FA83E9";
+      break;
+    case "fighting":
+      color = "#BD763C";
+      break;
+    case "steel":
+      color = "#A8BAB7";
+      break;
     default:
       color = "#888888";
   }
@@ -197,7 +254,15 @@ function populateCardBack(pokémon) {
     typeItem.textContent = pokéType.type.name;
     typesList.appendChild(typeItem);
   });
+
+  const pokéHeight = document.createElement("h5");
+  pokéHeight.textContent = `Height: ${pokémon.height}`;
+  const pokéWeight = document.createElement("h5");
+  pokéWeight.textContent = `Weight: ${pokémon.weight}`;
+
   pokéBack.appendChild(abilityList);
   pokéBack.appendChild(typesList);
+  pokéBack.appendChild(pokéHeight);
+  pokéBack.appendChild(pokéWeight);
   return pokéBack;
 }
