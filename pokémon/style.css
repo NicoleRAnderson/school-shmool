@@ -64,10 +64,6 @@ button:hover {
   transform: rotateY(180deg);
 }
 
-.front {
-  /* background:rgb(42, 140, 140);*/
-}
-
 .back {
   background-color: #81E5F5;
   transform: rotateY(180deg);
