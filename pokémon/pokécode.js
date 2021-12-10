@@ -31,8 +31,10 @@ loadButton.addEventListener("click", () => {
 const allPokémon = await getAllSimplePokémon();
 
 async function getAllSimplePokémon() {
-  const allPokémon = []
-  await getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=1118&offset=0`,).then(async (data) => {
+  const allPokémon = [];
+  await getAPIData(
+    `https://pokeapi.co/api/v2/pokemon?limit=1118&offset=0`
+  ).then(async (data) => {
     for (const pokémon of data.results) {
       await getAPIData(pokémon.url).then((pokéData) => {
         const mappedPokémon = {
@@ -42,12 +44,12 @@ async function getAllSimplePokémon() {
           name: pokéData.name,
           types: pokéData.types,
           weight: pokéData.weight,
-        }
-        allPokémon.push(mappedPokémon)
-      })
+        };
+        allPokémon.push(mappedPokémon);
+      });
     }
-  })
-  return allPokémon
+  });
+  return allPokémon;
 }
 
 const moreButton = document.querySelector(".morePokémon");
@@ -226,6 +228,21 @@ function getPokéTypeColor(pokéType) {
       break;
     case "steel":
       color = "#A8BAB7";
+      break;
+    case "ghost":
+      color = "#AAD2F2";
+      break;
+    case "dark":
+      color = "#4F6170";
+      break;
+    case "rock":
+      color = "#627368";
+      break;
+    case "ice":
+      color = "#60A5F0";
+      break;
+    case "dragon":
+      color = "#BD291A";
       break;
     default:
       color = "#888888";
