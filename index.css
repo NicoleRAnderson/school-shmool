@@ -180,6 +180,7 @@ footer {
   padding: 1rem;
   font-size: large;
   background-color: #120d36;
+  background-image: url("/images/sw-gradientstars.png");
 }
 
 footer h4 {
