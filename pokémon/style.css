@@ -72,7 +72,7 @@ button:hover {
 
 h4 {
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.75em;
     padding-bottom: .5em;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
@@ -97,7 +97,7 @@ figure img {
 figcaption {
   text-align: center;
   font-size: 1.5em;
-  padding-bottom: 1.5em;
+  padding-bottom: 1em;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
 }
